@@ -43,8 +43,7 @@ func _move(delta: float, direction: Vector2) -> void:
 		States.IDLE:
 			apply_friction(acceleration * delta)
 	
-	motion = move_and_slide(motion)
-#	move_and_collide(motion / 1000) # alternativa
+	motion = move_and_slide(motion) # move_and_slide ultiliza delta internamente
 
 
 func set_player(value: PhysicsBody2D) -> void:

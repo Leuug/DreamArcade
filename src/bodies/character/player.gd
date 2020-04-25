@@ -27,7 +27,7 @@ func _move(delta: float) -> void:
 	else:
 		apply_movement(axis * acceleration * delta)
 	
-	motion = move_and_slide(motion)
+	move_and_collide(motion * delta)
 
 
 func _look(delta: float, relative_position: Vector2) -> void:
