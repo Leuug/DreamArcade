@@ -4,9 +4,12 @@ Script base dos Personagens do Jogador.
 """
 const SMOOTHNESS = 5
 export(int, 0, 9999) var strength: int = 1
-onready var animation_player: AnimationPlayer = $AnimationPlayer
 var is_atacking: bool setget set_is_atacking
+var current_direction: Vector2 = Vector2.RIGHT
+
+onready var sprite: Sprite = $Sprite
 onready var weapon_ray: RayCast2D = $Weapon
+onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -17,12 +20,29 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("attack"):
 		_attack()
+	
+	if event.is_action_pressed("move_left"):
+		
+		sprite.flip_h = true
+		current_direction = Vector2.LEFT
+	
+	if event.is_action_pressed("move_right"):
+		
+		sprite.flip_h = false
+		current_direction = Vector2.RIGHT
 
 
 func _physics_process(delta: float) -> void:
-	
 	_move(delta)
-#	_look(delta, get_local_mouse_position())
+	
+	if is_atacking and weapon_ray.is_colliding():
+		damage_body(weapon_ray.get_collider())
+
+
+func damage_body(body: PhysicsBody2D) -> void:
+	
+	if body.has_method("take_damage"):
+		body.take_damage(strength)
 
 
 func _move(delta: float) -> void:
@@ -40,15 +60,14 @@ func _move(delta: float) -> void:
 	move_and_collide(motion * delta)
 
 
-func _look(delta: float, relative_position: Vector2) -> void:
-	"""
-	Rotaciona o Player em direção à posição indicada.
-	"""
-	rotation += relative_position.angle() * delta * SMOOTHNESS
-
-
 func _attack() -> void:
-	animation_player.play("attack")
+	
+	match current_direction:
+		Vector2.RIGHT:
+			animation_player.play("attack")
+		
+		Vector2.LEFT:
+			animation_player.play("attack _left")
 
 
 func get_input_axis() -> Vector2:
