@@ -1,10 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/bodies/characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/enemie.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "take_damage"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15, 0.225, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.85098, 0.223529, 0.223529, 1 ), Color( 1, 1, 1, 1 ), Color( 0.85098, 0.223529, 0.223529, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_is_damaging"
+}, {
+"args": [ false ],
+"method": "set_is_damaging"
+} ]
+}
 
 [node name="Enemie" groups=[
 "enemies",
 ] instance=ExtResource( 1 )]
 collision_layer = 4
 script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/take_damage = SubResource( 1 )
