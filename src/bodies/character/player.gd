@@ -12,7 +12,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	_move(delta)
-	_look(delta, get_local_mouse_position())
+#	_look(delta, get_local_mouse_position())
 
 
 func _move(delta: float) -> void:
