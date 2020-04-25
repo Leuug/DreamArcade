@@ -9,14 +9,34 @@ enum States {
 	ALERT
 }
 
+export(int, 0, 9999) var max_health: int = 3
 var player: PhysicsBody2D setget set_player
 var state: int = States.ALERT
+var is_damaging: bool
+onready var health: int = max_health
 
 
 func _physics_process(delta: float) -> void:
 	
 	if player != null:
 		_tracks_player(delta)
+
+
+func take_damage(atk: int) -> void:
+	
+	if is_damaging:
+		return
+	
+	if health <= 0:
+		die()
+		
+	else:
+		$AnimationPlayer.play("take_damage")
+		health -= atk
+
+
+func die() -> void:
+	queue_free()
 
 
 func _tracks_player(delta: float) -> void:
@@ -51,3 +71,7 @@ func set_player(value: PhysicsBody2D) -> void:
 	O player deve ser determinado externamente.
 	"""
 	player = value
+
+
+func set_is_damaging(value: bool) -> void:
+	is_damaging = value
