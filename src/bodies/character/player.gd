@@ -6,6 +6,8 @@ const SMOOTHNESS = 5
 export(int, 0, 9999) var strength: int = 1
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 var is_atacking: bool setget set_is_atacking
+var current_direction: Vector2 = Vector2.RIGHT
+
 onready var weapon_ray: RayCast2D = $Weapon
 
 
