@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/bodies/character/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/enemie.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/objects/destructible_object.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/hud/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/Gerard_Test.png" type="Texture" id=6]
+[ext_resource path="res://src/bodies/floating_bodies/chasing_body.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -70,6 +71,10 @@ position = Vector2( 448, 280 )
 [node name="Polygon2D" type="Polygon2D" parent="YSort/Enemie"]
 color = Color( 0.792157, 0.0431373, 0.411765, 1 )
 polygon = PoolVector2Array( -8, -8, 0, 0, -8, 8, 8, 0 )
+
+[node name="ChasingBody" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 312, 256 )
+target = NodePath("../Enemie")
 
 [node name="DestructibleObject" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 352, 224 )
