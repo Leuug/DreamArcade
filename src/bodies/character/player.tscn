@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/bodies/characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/player.gd" type="Script" id=2]
@@ -219,13 +219,13 @@ tracks/7/keys = {
 collision_layer = 2
 script = ExtResource( 2 )
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
 visible = false
 scale = Vector2( -1, -1 )
 color = Color( 0.0431373, 0.669271, 0.792157, 1 )
 polygon = PoolVector2Array( 8, -8, 24, -32, 24, -24, 8, -8 )
 
-[node name="Weapon" type="RayCast2D" parent="." index="3"]
+[node name="Weapon" type="RayCast2D" parent="." index="2"]
 visible = false
 rotation = -2.44346
 scale = Vector2( -1, -1 )
@@ -233,6 +233,6 @@ cast_to = Vector2( 0, 33 )
 collision_mask = 12
 collide_with_areas = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 1 )
 "anims/attack _left" = SubResource( 2 )

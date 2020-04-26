@@ -2,6 +2,7 @@ extends StaticBody2D
 
 const collectible: PackedScene = preload("res://src/objects/collectible.tscn")
 
+
 func take_damage(_atk: int) -> void:
 	
 	var new_collectible: Area2D = collectible.instance()
