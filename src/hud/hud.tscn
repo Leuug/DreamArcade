@@ -1,60 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/hud/hud.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
-length = 0.3
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("PopUp/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.02, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.419608, 0.0431373, 0.792157, 0 ), Color( 0.298039, 0.0431373, 0.576471, 0.392157 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("PopUp/ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.02 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
 [node name="HUD" type="CanvasLayer"]
-pause_mode = 2
 scale = Vector2( 4, 4 )
 transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 script = ExtResource( 2 )
 
-[node name="Display" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -960.0
-margin_bottom = -540.0
+[node name="ScoreDisplay" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="HBoxContainer" parent="Display"]
-margin_right = 91.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="Label" parent="Display/Score"]
+[node name="Title" type="Label" parent="ScoreDisplay"]
 margin_top = 11.0
 margin_right = 47.0
 margin_bottom = 29.0
@@ -64,7 +26,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Value" type="Label" parent="Display/Score"]
+[node name="Value" type="Label" parent="ScoreDisplay"]
 margin_left = 51.0
 margin_top = 11.0
 margin_right = 91.0
@@ -72,35 +34,3 @@ margin_bottom = 29.0
 rect_min_size = Vector2( 40, 18 )
 text = "0000"
 align = 2
-
-[node name="PopUp" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="PopUp"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.414319, 0.0431373, 0.782773, 0.0170621 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="ConfirmationDialog" parent="PopUp"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -104.5
-margin_top = -35.0
-margin_right = 104.5
-margin_bottom = 35.0
-theme = ExtResource( 1 )
-dialog_text = "Are you sure you want to exit?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blur_in = SubResource( 1 )
-[connection signal="about_to_show" from="PopUp/Exit" to="." method="_on_Exit_about_to_show"]
-[connection signal="confirmed" from="PopUp/Exit" to="." method="_on_Exit_confirmed"]
-[connection signal="popup_hide" from="PopUp/Exit" to="." method="_on_Exit_popup_hide"]
