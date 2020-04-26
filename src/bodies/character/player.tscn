@@ -1,10 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/bodies/characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/player.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "attack"
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -67,10 +66,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true, true, false ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Weapon:visible")
@@ -83,159 +82,24 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Weapon:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Polygon2D:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "attack _left"
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Polygon2D:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 90.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Polygon2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Weapon:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -50.0, -140.0 ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ true ],
-"method": "set_is_atacking"
-}, {
-"args": [ false ],
-"method": "set_is_atacking"
-} ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Weapon:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Weapon:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Polygon2D:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1, -1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Weapon:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1, -1 ) ]
 }
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="0"]
-texture = ExtResource( 3 )
-
 [node name="Polygon2D" type="Polygon2D" parent="." index="2"]
 visible = false
-scale = Vector2( -1, -1 )
+rotation = 1.5708
 color = Color( 0.0431373, 0.669271, 0.792157, 1 )
 polygon = PoolVector2Array( 8, -8, 24, -32, 24, -24, 8, -8 )
 
 [node name="Weapon" type="RayCast2D" parent="." index="3"]
 visible = false
-rotation = -2.44346
-scale = Vector2( -1, -1 )
+rotation = -0.872665
 cast_to = Vector2( 0, 33 )
 collision_mask = 12
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/attack = SubResource( 1 )
-"anims/attack _left" = SubResource( 2 )

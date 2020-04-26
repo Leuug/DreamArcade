@@ -4,12 +4,9 @@ Script base dos Personagens do Jogador.
 """
 const SMOOTHNESS = 5
 export(int, 0, 9999) var strength: int = 1
-var is_atacking: bool setget set_is_atacking
-var current_direction: Vector2 = Vector2.RIGHT
-
-onready var sprite: Sprite = $Sprite
-onready var weapon_ray: RayCast2D = $Weapon
 onready var animation_player: AnimationPlayer = $AnimationPlayer
+var is_atacking: bool setget set_is_atacking
+onready var weapon_ray: RayCast2D = $Weapon
 
 
 func _ready() -> void:
@@ -20,16 +17,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("attack"):
 		_attack()
-	
-	if event.is_action_pressed("move_left"):
-		
-		sprite.flip_h = true
-		current_direction = Vector2.LEFT
-	
-	if event.is_action_pressed("move_right"):
-		
-		sprite.flip_h = false
-		current_direction = Vector2.RIGHT
 
 
 func _physics_process(delta: float) -> void:
@@ -58,6 +45,13 @@ func _move(delta: float) -> void:
 		apply_movement(axis * acceleration * delta)
 	
 	move_and_collide(motion * delta)
+
+
+func _look(delta: float, relative_position: Vector2) -> void:
+	"""
+	Rotaciona o Player em direção à posição indicada.
+	"""
+	rotation += relative_position.angle() * delta * SMOOTHNESS
 
 
 func _attack() -> void:
