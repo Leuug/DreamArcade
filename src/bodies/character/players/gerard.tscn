@@ -1,53 +1,87 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/bodies/character/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Gerard.png" type="Texture" id=2]
 [ext_resource path="res://src/bodies/character/players/gerard.gd" type="Script" id=3]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+
+uniform bool apply = true;
+uniform float amount = 1.0;
+uniform sampler2D offset_texture : hint_white;
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 color = texture_color;
+	
+	if (apply == true) {
+		float adjusted_amount = amount * texture(offset_texture, UV).r / 100.0;
+		color.r = texture(TEXTURE, vec2(UV.x + adjusted_amount, UV.y)).r;
+		color.g = texture(TEXTURE, UV).g;
+		color.b = texture(TEXTURE, vec2(UV.x - adjusted_amount, UV.y)).b;
+	}
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+shader_param/apply = true
+shader_param/amount = 0.2
+
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 192, 0, 48, 48 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=3]
-resource_name = "running"
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 5.0
+height = 32.0
+
+[sub_resource type="Animation" id=8]
 length = 2.0
 loop = true
 
 [node name="Gerard" instance=ExtResource( 1 )]
+material = SubResource( 12 )
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-frames = SubResource( 9 )
+use_parent_material = true
+frames = SubResource( 6 )
 animation = "idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 7 )
 
 [node name="Polygon2D" parent="." index="2"]
 rotation = 1.5708
@@ -59,4 +93,4 @@ scale = Vector2( 1, 1 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 playback_speed = 3.0
-anims/running = SubResource( 3 )
+anims/running = SubResource( 8 )
