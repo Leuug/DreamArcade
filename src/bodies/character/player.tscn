@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/bodies/characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/player.gd" type="Script" id=2]
@@ -88,9 +88,6 @@ tracks/5/keys = {
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 2 )
-
-[node name="Sprite" parent="." index="0"]
-texture = ExtResource( 3 )
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="2"]
 visible = false
