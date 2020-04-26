@@ -1,5 +1,7 @@
 extends Area2D
-
+"""
+Um item que pode ser coletado pelo Personagem do Jogador.
+"""
 export(int, 0, 9999) var points: int
 
 

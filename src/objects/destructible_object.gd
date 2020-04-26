@@ -1,5 +1,7 @@
 extends StaticBody2D
-
+"""
+Um objeto que pode ser destruído e que pode dropar algo.
+"""
 const collectible: PackedScene = preload("res://src/objects/collectible.tscn")
 
 func take_damage(_atk: int) -> void:
