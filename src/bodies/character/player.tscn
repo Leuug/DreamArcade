@@ -2,6 +2,7 @@
 
 [ext_resource path="res://src/bodies/characters.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/Gerard_Test.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.15

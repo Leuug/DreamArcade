@@ -22,16 +22,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	_move(delta)
-	
-	if is_atacking and weapon_ray.is_colliding():
-		damage_body(weapon_ray.get_collider())
-
-
-func damage_body(body: PhysicsBody2D) -> void:
-	
-	if body.has_method("take_damage"):
-		body.take_damage(strength)
+#	_look(delta, get_local_mouse_position())
 
 
 func _move(delta: float) -> void:
@@ -57,13 +50,7 @@ func _look(delta: float, relative_position: Vector2) -> void:
 
 
 func _attack() -> void:
-	
-	match current_direction:
-		Vector2.RIGHT:
-			animation_player.play("attack")
-		
-		Vector2.LEFT:
-			animation_player.play("attack _left")
+	animation_player.play("attack")
 
 
 func get_input_axis() -> Vector2:

@@ -1,7 +1,6 @@
 extends CanvasLayer
 
-onready var score_display: Label = $Display/Score/Value
-onready var exit_popup: Popup = $PopUp/Exit
+onready var score_display: Label = $ScoreDisplay/Value
 
 
 func _ready() -> void:
