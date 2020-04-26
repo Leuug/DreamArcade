@@ -27,9 +27,7 @@ func _physics_process(delta: float) -> void:
 
 
 func damage_body(body: PhysicsBody2D) -> void:
-	"""
-	Causa dano a um 'corpo' qualquer.
-	"""
+	
 	if body.has_method("take_damage"):
 		body.take_damage(strength)
 
@@ -57,9 +55,7 @@ func _look(delta: float, relative_position: Vector2) -> void:
 
 
 func _attack() -> void:
-	"""
-	Executa a animação de ataque.
-	"""
+	
 	match current_direction:
 		Vector2.RIGHT:
 			animation_player.play("attack")

@@ -1,7 +1,5 @@
 extends CanvasLayer
-"""
-Gerencia as informações que serão apresentadas na tela.
-"""
+
 onready var score_display: Label = $Display/Score/Value
 onready var exit_popup: Popup = $PopUp/Exit
 

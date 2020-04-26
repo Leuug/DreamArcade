@@ -23,9 +23,6 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage(atk: int) -> void:
-	"""
-	Causa dano ao inimigo (chamado externamente).
-	"""
 	
 	if is_damaging:
 		return
