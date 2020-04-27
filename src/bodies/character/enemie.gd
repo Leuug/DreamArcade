@@ -5,11 +5,12 @@ for 'ALERT'.
 """
 
 enum States {
-	IDLE = 0
-	ALERT
+	IDLE
+	ALERT,
+	KNOCK_BACK
 }
 
-export(int, 0, 9999) var max_health: int = 3
+export(int, 0, 9999) var max_health: int = 2
 var player: PhysicsBody2D setget set_player
 var state: int = States.ALERT
 var is_damaging: bool
@@ -18,11 +19,26 @@ onready var health: int = max_health
 
 func _physics_process(delta: float) -> void:
 	
-	if player != null:
-		_tracks_player(delta)
+	match state:
+		
+		States.KNOCK_BACK:
+			apply_friction(200 * delta)
+		
+		States.ALERT:
+			if player != null:
+				_tracks_player(delta)
+	
+	motion = move_and_slide(motion) # move_and_slide ultiliza delta internamente
 
 
-func take_damage(atk: int) -> void:
+func _on_KnockBackTimer_timeout() -> void:
+	state = States.ALERT
+
+
+func take_damage(atk: int, atack_position: Vector2) -> void:
+	"""
+	Lida com o ataque (recebido por outro objeto).
+	"""
 	
 	if is_damaging:
 		return
@@ -31,11 +47,14 @@ func take_damage(atk: int) -> void:
 		die()
 		
 	else:
-		$AnimationPlayer.play("take_damage")
 		health -= atk
+		state = States.KNOCK_BACK
+		$AnimationPlayer.play("take_damage")
+		$KnockBackTimer.start()
+		motion = (global_position - atack_position).clamped(1) * 150 # set knock back
 
 
-func die() -> void:
+func die() -> void: # TODO -> Adicionar animações
 	queue_free()
 
 
@@ -62,8 +81,6 @@ func _move(delta: float, direction: Vector2) -> void:
 		
 		States.IDLE:
 			apply_friction(acceleration * delta)
-	
-	motion = move_and_slide(motion) # move_and_slide ultiliza delta internamente
 
 
 func set_player(value: PhysicsBody2D) -> void:

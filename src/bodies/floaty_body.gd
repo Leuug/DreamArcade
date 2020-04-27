@@ -31,7 +31,11 @@ func _physics_process(delta):
 	current_speed = move_and_slide(current_speed)
 
 
-func approach(current_value, target_value, variation): # Faz uma interpolação linear entre target_value e current_value em uma dada taxa de variation
+func approach(current_value, target_value, variation):
+	"""
+	Faz uma interpolação linear entre target_value e current_value em uma dada taxa de variation.
+	Basicamente, um lerp manual. // Fiz por didática.
+	"""
 	var difference = target_value - current_value
 	
 	if difference > variation:

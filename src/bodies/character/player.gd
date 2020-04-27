@@ -18,6 +18,7 @@ var is_atacking: bool setget set_is_atacking
 var current_direction: Vector2 = Vector2.RIGHT
 var dash_direction: Vector2
 var state: int
+var damaged_bodies: PoolIntArray = []
 
 onready var weapon_ray: RayCast2D = $Weapon
 onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -65,12 +66,20 @@ func _physics_process(delta: float) -> void:
 func _on_DashTimer_timeout() -> void:
 	state = State.RUN
 	motion = Vector2.ZERO
-
-
-func damage_body(body: PhysicsBody2D) -> void:
 	
-	if body.has_method("take_damage"):
-		body.take_damage(strength)
+	if Input.get_action_strength("move_right") - Input.get_action_strength("move_left") > 0:
+		_move_right()
+		
+	else:
+		_move_left()
+
+
+func damage_body(body: CollisionObject2D) -> void:
+	
+	if body.has_method("take_damage") and not body.get_instance_id() in damaged_bodies:
+		
+		damaged_bodies.append(body.get_instance_id())
+		body.take_damage(strength, global_position)
 
 
 func _move(delta: float) -> void:
@@ -109,16 +118,18 @@ func _set_dash() -> void:
 
 
 func _dash(delta: float) -> void:
+	"""
+	Executa o movimento de dash.
+	"""
 	var timing: float = DASH_TIME - dash_timer.time_left
 	
 	if timing < DASH_TIME / 2:
 		motion = lerp(motion, current_direction * dash_max_speed, delta * 0.0005)
-		
+	
 	else:
 		motion = lerp(motion, current_direction * dash_min_speed, delta * 0.0005)
 	
 	move_and_collide(motion)
-	state = State.DASH
 
 
 func _move_left() -> void:
@@ -150,4 +161,8 @@ func get_input_axis() -> Vector2:
 
 
 func set_is_atacking(value: bool) -> void:
+	
+	if not value:
+		damaged_bodies = []
+	
 	is_atacking = value

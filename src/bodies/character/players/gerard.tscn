@@ -34,49 +34,49 @@ shader_param/amount = 0.2
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
 region = Rect2( 192, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 2 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "dash",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=13]
 radius = 5.0
 height = 32.0
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 2.0
 loop = true
 
@@ -86,20 +86,12 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 use_parent_material = true
-frames = SubResource( 15 )
+frames = SubResource( 12 )
 animation = "idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 9 )
-
-[node name="Polygon2D" parent="." index="2"]
-rotation = 1.5708
-scale = Vector2( 1, 1 )
-
-[node name="Weapon" parent="." index="3"]
-rotation = -0.872665
-scale = Vector2( 1, 1 )
+shape = SubResource( 13 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 playback_speed = 3.0
-anims/running = SubResource( 10 )
+anims/running = SubResource( 11 )

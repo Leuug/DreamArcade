@@ -5,7 +5,7 @@ var dying: bool
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func take_damage(_atk: int) -> void:
+func take_damage(_atk: int, _pos: Vector2) -> void:
 	"""
 	Destroi o objeto com algum ataque.
 	"""
