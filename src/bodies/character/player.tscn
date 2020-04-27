@@ -238,3 +238,8 @@ collide_with_areas = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 1 )
 "anims/attack _left" = SubResource( 2 )
+
+[node name="DashTimer" type="Timer" parent="." index="4"]
+wait_time = 0.25
+one_shot = true
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]

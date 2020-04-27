@@ -11,6 +11,9 @@ func _physics_process(delta: float) -> void:
 	
 	if state == State.IDLE:
 		animated_sprite.play('idle')
+	
+	if state == State.DASH:
+		animated_sprite.play('dash')
 
 
 func _move_left() -> void:
