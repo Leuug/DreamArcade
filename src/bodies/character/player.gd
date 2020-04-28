@@ -3,6 +3,7 @@ extends "res://src/bodies/characters.gd"
 Script base dos Personagens do Jogador.
 """
 signal weapon_changed
+signal combo_changed
 
 const SMOOTHNESS = 5
 const DASH_TIME = .15
@@ -24,6 +25,8 @@ export(float, 0, 9999) var dash_min_speed: float = 1
 var is_atacking: bool setget set_is_atacking
 var state: int
 var current_weapon: int
+var combo: int setget set_combo
+var max_combos: int = 6
 var current_direction: Vector2 = Vector2.RIGHT
 var dash_direction: Vector2
 var damaged_bodies: PoolIntArray = []
@@ -31,6 +34,7 @@ var damaged_bodies: PoolIntArray = []
 onready var weapon_ray: RayCast2D = $Weapon
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var dash_timer: Timer = $DashTimer
+onready var combo_timer: Timer = $ComboTimer
 
 
 func _ready() -> void:
@@ -39,7 +43,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and combo != max_combos:
 		_attack()
 	
 	if event.is_action_pressed("move_left"):
@@ -86,6 +90,10 @@ func _on_DashTimer_timeout() -> void:
 		
 	else:
 		_move_left()
+
+
+func _on_ComboTimer_timeout() -> void:
+	set_combo(combo - 1)
 
 
 func damage_body(body: CollisionObject2D) -> void:
@@ -172,6 +180,8 @@ func _cut() -> void:
 		
 		Vector2.LEFT:
 			animation_player.play("attack _left")
+	
+	set_combo(min(combo + 1, max_combos))
 
 
 func _shoot() -> void:
@@ -226,3 +236,11 @@ func set_is_atacking(value: bool) -> void:
 func set_current_weapon(value: int) -> void:
 	current_weapon = value
 	emit_signal("weapon_changed", current_weapon)
+
+
+func set_combo(value: int) -> void:
+	combo = value
+	emit_signal("combo_changed", combo)
+	
+	if combo > 0 and combo_timer.is_stopped():
+		combo_timer.start()

@@ -77,4 +77,5 @@ color = Color( 0.835938, 0.804508, 0.333069, 1 )
 polygon = PoolVector2Array( 0, -8, 8, 0, 0, 8, -8, 0 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+[connection signal="combo_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_combo_changed"]
 [connection signal="weapon_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_weapon_changed"]
