@@ -10,11 +10,9 @@ enum States {
 	KNOCK_BACK
 }
 
-export(int, 0, 9999) var max_health: int = 2
 var player: PhysicsBody2D setget set_player
 var state: int = States.ALERT
 var is_damaging: bool
-onready var health: int = max_health
 
 
 func _physics_process(delta: float) -> void:
@@ -35,27 +33,22 @@ func _on_KnockBackTimer_timeout() -> void:
 	state = States.ALERT
 
 
-func take_damage(atk: int, atack_position: Vector2) -> void:
-	"""
-	Lida com o ataque (recebido por outro objeto).
-	"""
-	
-	if is_damaging:
-		return
-	
-	if health <= 0:
-		die()
-		
-	else:
-		health -= atk
-		state = States.KNOCK_BACK
-		$AnimationPlayer.play("take_damage")
-		$KnockBackTimer.start()
-		motion = (global_position - atack_position).clamped(1) * 150 # set knock back
+func _on_Player_tree_exiting() -> void:
+	set_player(null)
 
 
-func die() -> void: # TODO -> Adicionar animações
-	queue_free()
+func take_damage(atk: int, from: Vector2) -> void: # @override
+	
+	if not is_damaging:
+		.take_damage(atk, from)
+
+
+func _knock_back(from: Vector2, force: int) -> void:
+	
+	state = States.KNOCK_BACK
+	$AnimationPlayer.play("take_damage")
+	$KnockBackTimer.start()
+	._knock_back(from, force)
 
 
 func _tracks_player(delta: float) -> void:
@@ -87,8 +80,19 @@ func set_player(value: PhysicsBody2D) -> void:
 	"""
 	O player deve ser determinado externamente.
 	"""
+	if player != null:
+		player.disconnect("tree_exiting", self, "_on_Player_tree_exiting")
+	
+	if value != null:
+		var errors: int = value.connect("tree_exiting", self, "_on_Player_tree_exiting")
+		assert(errors == OK)
+	
 	player = value
 
 
 func set_is_damaging(value: bool) -> void:
 	is_damaging = value
+
+
+func _on_DamageArea_body_entered(body: Node) -> void:
+	body.take_damage(strength, global_position)

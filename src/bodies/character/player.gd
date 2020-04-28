@@ -10,7 +10,6 @@ enum State {
 	DASH
 }
 
-export(int, 0, 9999) var strength: int = 1
 export(float, 0, 9999) var dash_max_speed: float = 5
 export(float, 0, 9999) var dash_min_speed: float = 1
 
