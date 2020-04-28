@@ -76,6 +76,24 @@ rect_min_size = Vector2( 40, 18 )
 text = "0000"
 align = 2
 
+[node name="Weapon" type="HBoxContainer" parent="Display"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -60.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="Display/Weapon"]
+material = ExtResource( 3 )
+margin_top = 11.0
+margin_right = 40.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 40, 18 )
+text = "Knife"
+align = 2
+
 [node name="PopUp" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PopUp"]

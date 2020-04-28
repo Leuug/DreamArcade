@@ -1,8 +1,8 @@
 extends CanvasLayer
 
+var weapon_names: PoolStringArray = ['Knife', 'Gun']
 onready var score_display: Label = $Display/Score/Value
 onready var exit_popup: Popup = $PopUp/Exit
-
 
 func _ready() -> void:
 	var errors: int = Game.connect("score_changed", self, "_on_Game_score_changed")
@@ -37,3 +37,7 @@ func _on_Exit_popup_hide() -> void:
 	
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur_in")
+
+
+func _on_Gerard_weapon_changed(weapon_id: int) -> void:
+	$Display/Weapon/Value.text = weapon_names[weapon_id]

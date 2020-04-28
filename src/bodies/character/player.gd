@@ -2,21 +2,30 @@ extends "res://src/bodies/characters.gd"
 """
 Script base dos Personagens do Jogador.
 """
+signal weapon_changed
+
 const SMOOTHNESS = 5
 const DASH_TIME = .15
+const bullet: PackedScene = preload("res://src/objects/bullet.tscn")
+
 enum State {
 	IDLE,
 	RUN,
 	DASH
+}
+enum Weapons {
+	KNIFE,
+	GUN
 }
 
 export(float, 0, 9999) var dash_max_speed: float = 5
 export(float, 0, 9999) var dash_min_speed: float = 1
 
 var is_atacking: bool setget set_is_atacking
+var state: int
+var current_weapon: int
 var current_direction: Vector2 = Vector2.RIGHT
 var dash_direction: Vector2
-var state: int
 var damaged_bodies: PoolIntArray = []
 
 onready var weapon_ray: RayCast2D = $Weapon
@@ -47,6 +56,12 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("dash"):
 		_set_dash()
+	
+	if event.is_action_pressed("scroll_up"):
+		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1))
+	
+	if event.is_action_pressed("scroll_down"):
+		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1, -1))# FIXME
 
 
 func _physics_process(delta: float) -> void:
@@ -141,12 +156,33 @@ func _move_right() -> void:
 
 func _attack() -> void:
 	
+	match current_weapon:
+		Weapons.KNIFE:
+			_cut()
+		
+		Weapons.GUN:
+			_shoot()
+
+
+func _cut() -> void:
+	
 	match current_direction:
 		Vector2.RIGHT:
 			animation_player.play("attack")
 		
 		Vector2.LEFT:
 			animation_player.play("attack _left")
+
+
+func _shoot() -> void:
+	
+	var new_bullet: Area2D = bullet.instance()
+	var mouse_position: Vector2 = get_local_mouse_position()
+	
+	new_bullet.rotation = mouse_position.angle()
+	new_bullet.global_position = global_position + mouse_position.clamped(1) * 8
+	
+	get_tree().current_scene.add_child(new_bullet)
 
 
 func get_input_axis() -> Vector2:
@@ -159,9 +195,34 @@ func get_input_axis() -> Vector2:
 	).normalized()
 
 
+static func cycle_trought(value: int, max_value: int, amount: int = 1) -> int:
+	"""
+	Percorre um valor de forma cíclica. Ex.:
+		value = 1, max_value = 3, amount = 12. Contando 12 vezes entre 0 e 3, começando do 1, o valor final será 1.
+		1+1= 2, 2+1= 3 -> 0+1= 1, 1+1 = 2, 2+1 = 2 -> ... 0+1 = 1
+	"""
+	var new_value: int = value + amount
+	
+	while new_value < 0: # TODO -> Verificar uma forma matemática de resolver esse algoritmo.
+		new_value += max_value # FIXME
+	
+	if new_value > max_value:
+		new_value = (value + amount) % max_value
+	
+#	while new_value > max_value: # Equivalente algoritmico do método acima.
+#		new_value -= max_value
+	
+	return new_value
+
+
 func set_is_atacking(value: bool) -> void:
 	
 	if not value:
 		damaged_bodies = []
 	
 	is_atacking = value
+
+
+func set_current_weapon(value: int) -> void:
+	current_weapon = value
+	emit_signal("weapon_changed", current_weapon)
