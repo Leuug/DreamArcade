@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void:
 		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1))
 	
 	if event.is_action_pressed("scroll_down"):
-		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1, -1))# FIXME
+		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1, -1))
 
 
 func _physics_process(delta: float) -> void:
@@ -82,10 +82,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_DashTimer_timeout() -> void:
+	
+	var direction: int = round(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	state = State.RUN
 	motion = Vector2.ZERO
 	
-	if Input.get_action_strength("move_right") - Input.get_action_strength("move_left") > 0:
+	if direction == 0:
+		return
+	
+	if direction > 0:
 		_move_right()
 		
 	else:
@@ -212,12 +217,21 @@ static func cycle_trought(value: int, max_value: int, amount: int = 1) -> int:
 		1+1= 2, 2+1= 3 -> 0+1= 1, 1+1 = 2, 2+1 = 2 -> ... 0+1 = 1
 	"""
 	var new_value: int = value + amount
+	var pointer: int
 	
-	while new_value < 0: # TODO -> Verificar uma forma matemática de resolver esse algoritmo.
-		new_value += max_value # FIXME
+	if new_value < 0: # WATCH
+		pointer = (int(abs(value - amount)) % (max_value + 1))
+		new_value = max_value + 1 - pointer
 	
-	if new_value > max_value:
-		new_value = (value + amount) % max_value
+	if new_value > max_value: # WATCH
+		
+		pointer = ((value + amount) % (max_value + 1))
+		
+		if pointer + value >= max_value:
+			new_value = pointer
+		
+		else:
+			new_value = value + pointer
 	
 #	while new_value > max_value: # Equivalente algoritmico do método acima.
 #		new_value -= max_value

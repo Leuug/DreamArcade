@@ -16,6 +16,12 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play('dash')
 
 
+func _damage(atk: int) -> void:
+	
+	._damage(atk)
+	$AnimationPlayer.play("damage")
+
+
 func _move_left() -> void:
 	
 	._move_left()
