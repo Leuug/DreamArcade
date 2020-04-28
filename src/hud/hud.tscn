@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/hud/hud.gd" type="Script" id=2]
-[ext_resource path="res://assets/fx/crommatic_aberration.tres" type="Material" id=3]
+[ext_resource path="res://assets/fx/crommatic_aberration_screen.tres" type="Material" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.3
@@ -56,7 +56,6 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Display/Score"]
-material = ExtResource( 3 )
 margin_top = 11.0
 margin_right = 47.0
 margin_bottom = 29.0
@@ -67,7 +66,6 @@ __meta__ = {
 }
 
 [node name="Value" type="Label" parent="Display/Score"]
-material = ExtResource( 3 )
 margin_left = 51.0
 margin_top = 11.0
 margin_right = 91.0
@@ -86,13 +84,20 @@ __meta__ = {
 }
 
 [node name="Value" type="Label" parent="Display/Weapon"]
-material = ExtResource( 3 )
 margin_top = 11.0
 margin_right = 40.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 40, 18 )
 text = "Knife"
 align = 2
+
+[node name="Panel" type="Panel" parent="Display"]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PopUp" type="CanvasLayer" parent="."]
 
