@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/bodies/character/players/gerard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/enemie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://src/objects/destructible_object.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/hud/hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/objects/destructible_objects/explosive_object.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/bodies/floating_bodies/chasing_body.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -32,6 +33,28 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="GDScript" id=3]
+script/source = "tool
+extends Node2D
+
+export var radius: float = 12 setget set_radius
+export var color: Color = Color.bisque setget set_color
+
+
+func _draw() -> void:
+	draw_circle(Vector2.ZERO, radius, color)
+
+
+func set_radius(value: float) -> void:
+	radius = value
+	update()
+
+
+func set_color(value: Color) -> void:
+	color = value
+	update()
+"
 
 [node name="TestLevel" type="Node2D"]
 pause_mode = 1
@@ -75,6 +98,15 @@ position = Vector2( 352, 224 )
 [node name="Polygon2D" type="Polygon2D" parent="YSort/DestructibleObject"]
 color = Color( 0.835938, 0.804508, 0.333069, 1 )
 polygon = PoolVector2Array( 0, -8, 8, 0, 0, 8, -8, 0 )
+
+[node name="ExplosiveObject" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 400, 232 )
+
+[node name="Circle" type="Node2D" parent="YSort/ExplosiveObject"]
+show_behind_parent = true
+script = SubResource( 3 )
+radius = 9.0
+color = Color( 1, 0.89, 0.77, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 [connection signal="combo_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_combo_changed"]

@@ -33,12 +33,11 @@ func take_damage(atk: int, from: Vector2) -> void:
 	Lida com o ataque (recebido por outro objeto).
 	"""
 	
-	if health <= 0:
+	_damage(atk)
+	_knock_back(from, 10 * atk)
+	
+	if health < 0: # Não morre no Zeros
 		_die()
-		
-	else:
-		_damage(atk)
-		_knock_back(from, 10 * atk)
 
 
 func _die() -> void:
