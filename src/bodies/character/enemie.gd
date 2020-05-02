@@ -10,6 +10,7 @@ enum States {
 	KNOCK_BACK
 }
 
+export(int, 0, 9999) var strength: int = 1
 var player: PhysicsBody2D setget set_player
 var state: int = States.ALERT
 var is_damaging: bool
@@ -29,15 +30,21 @@ func _physics_process(delta: float) -> void:
 	motion = move_and_slide(motion) # move_and_slide ultiliza delta internamente
 
 
-func _on_KnockBackTimer_timeout() -> void:
-	state = States.ALERT
-
-
+# @signals
 func _on_Player_tree_exiting() -> void:
 	set_player(null)
 
 
-func take_damage(atk: int, from: Vector2) -> void: # @override
+func _on_KnockBackTimer_timeout() -> void:
+	state = States.ALERT
+
+
+func _on_DamageArea_body_entered(body: Node) -> void:
+	body.take_damage(strength, global_position)
+
+
+# @override
+func take_damage(atk: int, from: Vector2) -> void:
 	
 	if not is_damaging:
 		.take_damage(atk, from)
@@ -51,6 +58,7 @@ func _knock_back(from: Vector2, force: int) -> void:
 	._knock_back(from, force)
 
 
+# @main
 func _tracks_player(delta: float) -> void:
 	"""
 	Segue em direção ao player.
@@ -76,6 +84,7 @@ func _move(delta: float, direction: Vector2) -> void:
 			apply_friction(acceleration * delta)
 
 
+# @setters
 func set_player(value: PhysicsBody2D) -> void:
 	"""
 	O player deve ser determinado externamente.
@@ -92,7 +101,3 @@ func set_player(value: PhysicsBody2D) -> void:
 
 func set_is_damaging(value: bool) -> void:
 	is_damaging = value
-
-
-func _on_DamageArea_body_entered(body: Node) -> void:
-	body.take_damage(strength, global_position)

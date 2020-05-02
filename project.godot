@@ -32,6 +32,10 @@ window/stretch/mode="2d"
 window/stretch/aspect="keep"
 window/2d/use_pixel_snap=true
 
+[editor_plugins]
+
+enabled=PoolStringArray( "zylann.translation_editor" )
+
 [importer_defaults]
 
 texture={
@@ -129,6 +133,10 @@ scroll_down={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="collectibles"
+
+[locale]
+
+translations=PoolStringArray( "res://assets/localizations/main.en.translation", "res://assets/localizations/main.pt_BR.translation" )
 
 [rendering]
 

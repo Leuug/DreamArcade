@@ -3,7 +3,6 @@ extends KinematicBody2D
 Script base para todos os personagens do jogo. Implementa as movimentações 
 básicas (fricção e aceleração), seguindo a orientação 'Top-Down'.
 """
-export(int, 0, 9999) var strength: int = 1
 export(int, 0, 999) var max_health: int = 2 # hits/ atk (zero inclusivo)
 export(int, 0, 999) var weight: int = 100 # resistência ao knock_back # weigth vs atk
 export(float, 0, 1000) var max_speed: float = 100 # px/ sec

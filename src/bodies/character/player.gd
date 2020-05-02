@@ -4,6 +4,7 @@ Script base dos Personagens do Jogador.
 """
 signal weapon_changed
 signal combo_changed
+signal max_combos_changed
 
 const SMOOTHNESS = 5
 const DASH_TIME = .15
@@ -12,26 +13,19 @@ const bullet: PackedScene = preload("res://src/objects/bullet.tscn")
 enum State {
 	IDLE,
 	RUN,
-	DASH
-}
-enum Weapons {
-	KNIFE,
-	GUN
+	DASH,
+	ATK
 }
 
 export(float, 0, 9999) var dash_max_speed: float = 5
 export(float, 0, 9999) var dash_min_speed: float = 1
 
-var is_atacking: bool setget set_is_atacking
-var state: int
-var current_weapon: int
+var state: int setget set_state
 var combo: int setget set_combo
-var max_combos: int = 6
+var max_combos: int setget set_max_combos
 var current_direction: Vector2 = Vector2.RIGHT
 var dash_direction: Vector2
-var damaged_bodies: PoolIntArray = []
 
-onready var weapon_ray: RayCast2D = $Weapon
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var dash_timer: Timer = $DashTimer
 onready var combo_timer: Timer = $ComboTimer
@@ -44,7 +38,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("attack") and combo != max_combos:
-		_attack()
+		set_state(State.ATK)
 	
 	if event.is_action_pressed("move_left"):
 		_move_left()
@@ -59,13 +53,7 @@ func _input(event: InputEvent) -> void:
 		current_direction = Vector2.DOWN
 	
 	if event.is_action_pressed("dash"):
-		_set_dash()
-	
-	if event.is_action_pressed("scroll_up"):
-		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1))
-	
-	if event.is_action_pressed("scroll_down"):
-		set_current_weapon(cycle_trought(current_weapon, Weapons.size() -1, -1))
+		set_state(State.DASH)
 
 
 func _physics_process(delta: float) -> void:
@@ -76,15 +64,13 @@ func _physics_process(delta: float) -> void:
 		
 		State.DASH:
 			_dash(delta)
-	
-	if is_atacking and weapon_ray.is_colliding():
-		damage_body(weapon_ray.get_collider())
 
 
+# @signals
 func _on_DashTimer_timeout() -> void:
 	
 	var direction: int = round(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
-	state = State.RUN
+	set_state(State.RUN)
 	motion = Vector2.ZERO
 	
 	if direction == 0:
@@ -101,12 +87,44 @@ func _on_ComboTimer_timeout() -> void:
 	set_combo(combo - 1)
 
 
-func damage_body(body: CollisionObject2D) -> void:
+# @main
+func _set_idle() -> void:
+	"""
+	Função virtual que é chamada quando o jogador entra no state IDLE.
+	"""
+	pass
+
+
+func _set_run() -> void:
+	"""
+	Função virtual que é chamada quando o jogador entra no state RUN.
+	"""
+	pass
+
+
+func _set_attack() -> void:
+	"""
+	Chamada quando o jogador entra no state ATK.
+	"""
+	set_combo()
+
+
+func _set_dash() -> void:
+	"""
+	Chamado quando o jogador entrar no state DASH.
+	Configura o personagem para permitir que o dash seja executado.
+	"""
+	var mouse_position: Vector2 = get_local_mouse_position()
+	var dash_angle: float = rad2deg(mouse_position.angle())
 	
-	if body.has_method("take_damage") and not body.get_instance_id() in damaged_bodies:
-		
-		damaged_bodies.append(body.get_instance_id())
-		body.take_damage(strength, global_position)
+	dash_timer.start(DASH_TIME)
+	motion = mouse_position.clamped(1) * dash_max_speed / 2
+	
+	if dash_angle > -90 and dash_angle < 90:
+		_move_right()
+	
+	else:
+		_move_left()
 
 
 func _move(delta: float) -> void:
@@ -117,31 +135,13 @@ func _move(delta: float) -> void:
 	
 	if axis == Vector2.ZERO:
 		apply_friction(acceleration * delta)
-		state = State.IDLE
+		set_state(State.IDLE)
 		
 	else:
 		apply_movement(axis * acceleration * delta)
-		state = State.RUN
+		set_state(State.RUN)
 	
 	move_and_collide(motion * delta)
-
-
-func _set_dash() -> void:
-	"""
-	Configura o personagem para permitir que o dash seja executado.
-	"""
-	var mouse_position: Vector2 = get_local_mouse_position()
-	var dash_angle: float = rad2deg(mouse_position.angle())
-	
-	state = State.DASH
-	dash_timer.start(DASH_TIME)
-	motion = mouse_position.clamped(1) * dash_max_speed / 2
-	
-	if dash_angle > -90 and dash_angle < 90:
-		_move_right()
-	
-	else:
-		_move_left()
 
 
 func _dash(delta: float) -> void:
@@ -160,44 +160,17 @@ func _dash(delta: float) -> void:
 
 
 func _move_left() -> void:
+	"""
+	Chamado quando o jogador vira à esquerda.
+	"""
 	current_direction = Vector2.LEFT
 
 
 func _move_right() -> void:
+	"""
+	Chamado quando o jogador vira à direita.
+	"""
 	current_direction = Vector2.RIGHT
-
-
-func _attack() -> void:
-	
-	match current_weapon:
-		Weapons.KNIFE:
-			_cut()
-		
-		Weapons.GUN:
-			_shoot()
-
-
-func _cut() -> void:
-	
-	match current_direction:
-		Vector2.RIGHT:
-			animation_player.play("attack")
-		
-		Vector2.LEFT:
-			animation_player.play("attack _left")
-	
-	set_combo(min(combo + 1, max_combos))
-
-
-func _shoot() -> void:
-	
-	var new_bullet: Area2D = bullet.instance()
-	var mouse_position: Vector2 = get_local_mouse_position()
-	
-	new_bullet.rotation = mouse_position.angle()
-	new_bullet.global_position = global_position + mouse_position.clamped(1) * 8
-	
-	get_tree().current_scene.add_child(new_bullet)
 
 
 func get_input_axis() -> Vector2:
@@ -239,22 +212,56 @@ static func cycle_trought(value: int, max_value: int, amount: int = 1) -> int:
 	return new_value
 
 
-func set_is_atacking(value: bool) -> void:
-	
-	if not value:
-		damaged_bodies = []
-	
-	is_atacking = value
-
-
-func set_current_weapon(value: int) -> void:
-	current_weapon = value
-	emit_signal("weapon_changed", current_weapon)
-
-
-func set_combo(value: int) -> void:
+# @setters
+func set_combo(value: int = int(min(combo + 1, max_combos))) -> void:
 	combo = value
 	emit_signal("combo_changed", combo)
 	
 	if combo > 0 and combo_timer.is_stopped():
 		combo_timer.start()
+
+
+func set_max_combos(value: int) -> void:
+	
+	max_combos = value
+	emit_signal("max_combos_changed", max_combos)
+
+
+func set_state(value: int = State.IDLE) -> void:
+	
+	if state != value:
+		state = value
+		
+		match state:
+			State.IDLE:
+				_set_idle()
+			
+			State.RUN:
+				_set_run()
+			
+			State.ATK:
+				_set_attack()
+			
+			State.DASH:
+				_set_dash()
+
+
+
+class Weapon extends Resource:
+	"""
+	Classe-base para as armas do jogador.
+	"""
+	var damage_modifier: int
+	var max_combos: int
+	var identifier: String
+	var name: String
+	var animation: String
+	
+	
+	func _init(localization_identifier: String, damage: int, combos: int) -> void:
+		
+		identifier = localization_identifier
+		name = tr(identifier)
+		animation = localization_identifier.to_lower()
+		damage_modifier = damage
+		max_combos = combos

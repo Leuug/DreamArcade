@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/bodies/character/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Gerard.png" type="Texture" id=2]
@@ -22,79 +22,79 @@ region = Rect2( 279, 0, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 144, 0, 48, 48 )
+region = Rect2( 0, 651, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 93, 93, 93 )
+region = Rect2( 93, 651, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 93, 93, 93 )
+region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 93, 93, 93 )
+region = Rect2( 0, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 93, 93, 93 )
+region = Rect2( 93, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 651, 93, 93 )
+region = Rect2( 186, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 651, 93, 93 )
+region = Rect2( 279, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 465, 93, 93 )
+region = Rect2( 0, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 465, 93, 93 )
+region = Rect2( 93, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 465, 93, 93 )
+region = Rect2( 186, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 465, 93, 93 )
+region = Rect2( 279, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 372, 93, 93 )
+region = Rect2( 0, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 372, 93, 93 )
+region = Rect2( 93, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 372, 93, 93 )
+region = Rect2( 186, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 372, 93, 93 )
+region = Rect2( 279, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 558, 93, 93 )
+region = Rect2( 0, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 558, 93, 93 )
+region = Rect2( 93, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 558, 93, 93 )
+region = Rect2( 186, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 558, 93, 93 )
+region = Rect2( 279, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
@@ -114,19 +114,19 @@ region = Rect2( 279, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 186, 93, 93 )
+region = Rect2( 0, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 186, 93, 93 )
+region = Rect2( 93, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 186, 93, 93 )
+region = Rect2( 186, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 186, 93, 93 )
+region = Rect2( 279, 558, 93, 93 )
 
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
@@ -135,34 +135,34 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "dash",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "damage",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "dash",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
-"name": "saber",
+"name": "knife",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
-"name": "hammer",
+"name": "saber",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
-"name": "gun",
+"name": "hammer",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
@@ -172,7 +172,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
-"name": "knife",
+"name": "gun",
 "speed": 5.0
 } ]
 
@@ -180,8 +180,17 @@ animations = [ {
 radius = 5.0
 height = 32.0
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="CapsuleShape2D" id=34]
+radius = 16.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=35]
+radius = 11.0
+height = 8.0
+
+[sub_resource type="Animation" id=36]
 length = 0.3
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -204,7 +213,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "hit" ]
+"values": [ "damage" ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:frame")
@@ -213,16 +222,54 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=35]
-resource_name = "gun"
+[sub_resource type="Animation" id=37]
+resource_name = "dash"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=38]
 length = 0.4
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -247,11 +294,24 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_shoot"
+} ]
+}
 
-[sub_resource type="Animation" id=36]
-resource_name = "hammer"
+[sub_resource type="Animation" id=39]
 length = 2.0
-step = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -276,12 +336,34 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HurtBox/Hamer:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.75, 1.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/Hamer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="Animation" id=37]
-resource_name = "idle"
-length = 2.0
+[sub_resource type="Animation" id=40]
+length = 7.5
 loop = true
-step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -301,16 +383,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.2, 1.5, 3 ),
+"transitions": PoolRealArray( 0.34151, 2.07053, 0.258816, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=38]
-resource_name = "katana"
+[sub_resource type="Animation" id=41]
 length = 1.2
-step = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -335,11 +415,33 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HurtBox/Katana:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/Katana:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="Animation" id=39]
-resource_name = "knife"
+[sub_resource type="Animation" id=45]
 length = 0.8
-loop = true
 step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -365,8 +467,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HurtBox/Knife:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/Knife:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=46]
 length = 2.0
 loop = true
 step = 0.5
@@ -395,10 +521,9 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=41]
-resource_name = "saber"
+[sub_resource type="Animation" id=44]
 length = 1.6
-step = 0.4
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -423,35 +548,89 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HurtBox/Saber:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HurtBox/Saber:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Gerard" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+position = Vector2( -7, 0 )
 frames = SubResource( 32 )
 animation = "idle"
-frame = 3
 offset = Vector2( 0, -25.071 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+modulate = Color( 1, 1, 1, 0.615686 )
+position = Vector2( -10, 0 )
 shape = SubResource( 33 )
 
-[node name="Polygon2D" parent="." index="2"]
-visible = true
-rotation = 0.0
+[node name="HurtBox" type="Area2D" parent="." index="2"]
+input_pickable = false
+monitorable = false
+collision_layer = 0
+collision_mask = 12
 
-[node name="Weapon" parent="." index="3"]
-visible = true
-rotation = -2.44346
-enabled = true
+[node name="Katana" type="CollisionShape2D" parent="HurtBox" index="0"]
+visible = false
+modulate = Color( 0.180392, 0.12549, 0.568627, 1 )
+position = Vector2( 16, -6 )
+shape = SubResource( 34 )
+disabled = true
+
+[node name="Knife" type="CollisionShape2D" parent="HurtBox" index="1"]
+visible = false
+modulate = Color( 0.180392, 0.12549, 0.568627, 1 )
+position = Vector2( 8, -6 )
+shape = SubResource( 35 )
+disabled = true
+
+[node name="Saber" type="CollisionPolygon2D" parent="HurtBox" index="2"]
+visible = false
+polygon = PoolVector2Array( 23, -8, 7, -21, 43, -16, 43, 4, 2, 17, -41, 9, -23, -9 )
+disabled = true
+
+[node name="Hamer" type="CollisionPolygon2D" parent="HurtBox" index="3"]
+visible = false
+polygon = PoolVector2Array( 9, -47, 38, -23, 43, 19, 17, 19, 25, -22 )
+disabled = true
+
+[node name="BulletPoint" type="Position2D" parent="." index="3"]
+position = Vector2( 25, -11 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 playback_speed = 3.0
-anims/damage = SubResource( 34 )
-anims/gun = SubResource( 35 )
-anims/hammer = SubResource( 36 )
-anims/idle = SubResource( 37 )
-anims/katana = SubResource( 38 )
-anims/knife = SubResource( 39 )
-anims/running = SubResource( 40 )
-anims/saber = SubResource( 41 )
+anims/damage = SubResource( 36 )
+anims/dash = SubResource( 37 )
+anims/gun = SubResource( 38 )
+anims/hammer = SubResource( 39 )
+anims/idle = SubResource( 40 )
+anims/katana = SubResource( 41 )
+anims/knife = SubResource( 45 )
+anims/running = SubResource( 46 )
+anims/saber = SubResource( 44 )
+[connection signal="area_entered" from="HurtBox" to="." method="damage_body"]
+[connection signal="body_entered" from="HurtBox" to="." method="damage_body"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

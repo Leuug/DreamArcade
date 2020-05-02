@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-var weapon_names: PoolStringArray = ['Knife', 'Gun']
 onready var score_display: Label = $Display/LeftContainer/Score/Value
 onready var exit_popup: Popup = $PopUp/Exit
 onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -41,8 +40,8 @@ func _on_Exit_popup_hide() -> void:
 	animation_player.play_backwards("blur_in")
 
 
-func _on_Gerard_weapon_changed(weapon_id: int) -> void:
-	$Display/Weapon/Value.text = weapon_names[weapon_id]
+func _on_Gerard_weapon_changed(weapon: String) -> void:
+	$Display/Weapon/Value.text = weapon
 
 
 func _on_Gerard_combo_changed(combo: int) -> void:
