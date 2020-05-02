@@ -7,9 +7,12 @@ signal volume_changed
 signal mute_toggled
 signal fullscreen_mode_changed
 signal score_changed
+signal language_changed
+
 
 const VOLUME_STEP = 0.1
 var score: int setget set_score
+onready var language := TranslationServer.get_locale() setget set_language, get_language
 
 
 func _input(event: InputEvent) -> void:
@@ -86,3 +89,14 @@ func set_score(value: int) -> void:
 	
 	score = value
 	emit_signal("score_changed")
+
+
+func set_language(value: String) -> void:
+	
+	TranslationServer.set_locale(value)
+	language = value
+	emit_signal("language_changed", value)
+
+
+func get_language() -> String:
+	return language
