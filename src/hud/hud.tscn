@@ -48,21 +48,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LeftContainer" type="VBoxContainer" parent="Display"]
-margin_right = 91.0
-margin_bottom = 40.0
+[node name="Top" type="HBoxContainer" parent="Display"]
+anchor_right = 1.0
+margin_bottom = 34.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="HBoxContainer" parent="Display/LeftContainer"]
+[node name="Left" type="VBoxContainer" parent="Display/Top"]
+margin_right = 91.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="HBoxContainer" parent="Display/Top/Left"]
 margin_right = 91.0
 margin_bottom = 18.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="Display/LeftContainer/Score"]
+[node name="Title" type="Label" parent="Display/Top/Left/Score"]
 margin_right = 47.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 47, 18 )
@@ -71,7 +78,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Value" type="Label" parent="Display/LeftContainer/Score"]
+[node name="Value" type="Label" parent="Display/Top/Left/Score"]
 margin_left = 51.0
 margin_right = 91.0
 margin_bottom = 18.0
@@ -79,14 +86,14 @@ rect_min_size = Vector2( 40, 18 )
 text = "0000"
 align = 2
 
-[node name="Stamina" type="MarginContainer" parent="Display/LeftContainer"]
+[node name="Stamina" type="MarginContainer" parent="Display/Top/Left"]
 margin_top = 22.0
 margin_right = 91.0
 margin_bottom = 34.0
 custom_constants/margin_right = 4
 custom_constants/margin_left = 4
 
-[node name="Bar" type="ProgressBar" parent="Display/LeftContainer/Stamina"]
+[node name="Bar" type="ProgressBar" parent="Display/Top/Left/Stamina"]
 margin_left = 4.0
 margin_right = 87.0
 margin_bottom = 12.0
@@ -96,19 +103,27 @@ step = 1.0
 value = 6.0
 percent_visible = false
 
-[node name="Weapon" type="HBoxContainer" parent="Display"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -60.0
-margin_bottom = 40.0
+[node name="Weapon" type="HBoxContainer" parent="Display/Top"]
+margin_left = 95.0
+margin_right = 320.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Value" type="Label" parent="Display/Weapon"]
-margin_top = 11.0
+[node name="MarginContainer" type="MarginContainer" parent="Display/Top/Weapon"]
+margin_left = 170.0
+margin_right = 225.0
+margin_bottom = 34.0
+custom_constants/margin_right = 15
+custom_constants/margin_bottom = 10
+
+[node name="Value" type="Label" parent="Display/Top/Weapon/MarginContainer"]
+margin_top = 3.0
 margin_right = 40.0
-margin_bottom = 29.0
+margin_bottom = 21.0
 rect_min_size = Vector2( 40, 18 )
 text = "Knife"
 align = 2
