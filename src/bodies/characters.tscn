@@ -50,4 +50,8 @@ shape = SubResource( 1 )
 anims/melt = SubResource( 2 )
 
 [node name="SlownessTimer" type="Timer" parent="."]
+
+[node name="DizzyTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="SlownessTimer" to="." method="_on_SlownessTimer_timeout"]
+[connection signal="timeout" from="DizzyTimer" to="." method="_on_DizzyTimer_timeout"]

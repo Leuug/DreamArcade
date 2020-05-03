@@ -22,111 +22,111 @@ region = Rect2( 279, 0, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 651, 93, 93 )
+region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 651, 93, 93 )
+region = Rect2( 0, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
-region = Rect2( 144, 0, 48, 48 )
+region = Rect2( 93, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 279, 93, 93 )
+region = Rect2( 186, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 279, 93, 93 )
+region = Rect2( 279, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 279, 93, 93 )
+region = Rect2( 0, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 279, 93, 93 )
+region = Rect2( 93, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 465, 93, 93 )
+region = Rect2( 186, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 465, 93, 93 )
+region = Rect2( 279, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 465, 93, 93 )
+region = Rect2( 0, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 465, 93, 93 )
+region = Rect2( 93, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 186, 93, 93 )
+region = Rect2( 186, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 186, 93, 93 )
+region = Rect2( 279, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 186, 93, 93 )
+region = Rect2( 0, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 186, 93, 93 )
+region = Rect2( 93, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 93, 93, 93 )
+region = Rect2( 186, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 93, 93, 93 )
+region = Rect2( 279, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 93, 93, 93 )
+region = Rect2( 0, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 93, 93, 93 )
+region = Rect2( 93, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 558, 93, 93 )
+region = Rect2( 186, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 558, 93, 93 )
+region = Rect2( 279, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 558, 93, 93 )
+region = Rect2( 0, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 558, 93, 93 )
+region = Rect2( 93, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 372, 93, 93 )
+region = Rect2( 186, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 372, 93, 93 )
+region = Rect2( 279, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 372, 93, 93 )
+region = Rect2( 0, 651, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 372, 93, 93 )
+region = Rect2( 93, 651, 93, 93 )
 
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
@@ -135,44 +135,44 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "damage",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "dash",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "katana",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
-"loop": true,
-"name": "saber",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "knife",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "saber",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "hammer",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "katana",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "gun",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"frames": [ SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
-"name": "hammer",
+"name": "damage",
 "speed": 5.0
 } ]
 
@@ -229,7 +229,6 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=37]
-resource_name = "dash"
 length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -580,10 +579,11 @@ script = ExtResource( 3 )
 position = Vector2( -7, 0 )
 frames = SubResource( 32 )
 animation = "idle"
-frame = 1
+frame = 3
 offset = Vector2( 0, -25.071 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 modulate = Color( 1, 1, 1, 0.615686 )
 position = Vector2( -10, 0 )
 shape = SubResource( 33 )

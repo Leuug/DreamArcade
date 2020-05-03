@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform sampler2D emission_texture;
+uniform vec4 glow_color : hint_color = vec4(1.0);
+
+void fragment()
+{
+	vec4 current_color = texture(TEXTURE, UV); // Captura o pixel atual
+	vec4 emission_color = texture(emission_texture, UV);
+	
+	if(emission_color.r > 0f)
+	{
+		COLOR = (emission_color + glow_color);
+	}
+	else
+	{
+		COLOR = current_color; // we arent over an emission pixel leave alone
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/glow_color = Color( 0.713726, 0, 0.972549, 1 )

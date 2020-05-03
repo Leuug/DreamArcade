@@ -21,10 +21,16 @@ func _ready() -> void:
 	randomize()
 
 
+# @signals
 func _on_SlownessTimer_timeout() -> void:
 	is_slow = false
 
 
+func _on_DizzyTimer_timeout() -> void:
+	set_physics_process(true)
+
+
+# @main
 func apply_friction(amount: float) -> void:
 	"""
 	Aplica fricção (desaceleração) ao motion.
@@ -87,7 +93,8 @@ func _dizzy() -> void:
 	"""
 	Função virtual chamada quando o personagem recebe o efeito DIZZY.
 	"""
-	pass
+	set_physics_process(false)
+	$DizzyTimer.start()
 
 
 func _melt() -> void:

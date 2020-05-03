@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/bodies/character/players/gerard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/bodies/character/enemie.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/hud/hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/objects/destructible_objects/explosive_object.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/bodies/floating_bodies/chasing_body.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/objects/pointer.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -56,6 +57,11 @@ func set_color(value: Color) -> void:
 	update()
 "
 
+[sub_resource type="Environment" id=4]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+
 [node name="TestLevel" type="Node2D"]
 pause_mode = 1
 __meta__ = {
@@ -80,7 +86,7 @@ position = Vector2( 280, 280 )
 [node name="Enemie" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 448, 280 )
 max_health = 100
-max_speed = 0.0
+max_speed = 10.0
 
 [node name="Polygon2D" type="Polygon2D" parent="YSort/Enemie"]
 color = Color( 0.792157, 0.0431373, 0.411765, 1 )
@@ -112,7 +118,13 @@ script = SubResource( 3 )
 radius = 9.0
 color = Color( 1, 0.89, 0.77, 1 )
 
+[node name="Player" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 256, 216 )
+
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
 [connection signal="combo_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_combo_changed"]
 [connection signal="max_combos_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_max_combos_changed"]
 [connection signal="weapon_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_weapon_changed"]
