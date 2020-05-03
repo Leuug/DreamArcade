@@ -34,99 +34,99 @@ region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 93, 93, 93 )
+region = Rect2( 0, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 93, 93, 93 )
+region = Rect2( 93, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 93, 93, 93 )
+region = Rect2( 186, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 93, 93, 93 )
+region = Rect2( 279, 279, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 186, 93, 93 )
+region = Rect2( 0, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 186, 93, 93 )
+region = Rect2( 93, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 186, 93, 93 )
+region = Rect2( 186, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 186, 93, 93 )
+region = Rect2( 279, 465, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 465, 93, 93 )
+region = Rect2( 0, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 465, 93, 93 )
+region = Rect2( 93, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 465, 93, 93 )
+region = Rect2( 186, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 465, 93, 93 )
+region = Rect2( 279, 186, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 372, 93, 93 )
+region = Rect2( 0, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 372, 93, 93 )
+region = Rect2( 93, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 372, 93, 93 )
+region = Rect2( 186, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 372, 93, 93 )
+region = Rect2( 279, 93, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 279, 93, 93 )
+region = Rect2( 0, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 279, 93, 93 )
+region = Rect2( 93, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 279, 93, 93 )
+region = Rect2( 186, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 279, 93, 93 )
+region = Rect2( 279, 558, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 558, 93, 93 )
+region = Rect2( 0, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 2 )
-region = Rect2( 93, 558, 93, 93 )
+region = Rect2( 93, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 2 )
-region = Rect2( 186, 558, 93, 93 )
+region = Rect2( 186, 372, 93, 93 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 2 )
-region = Rect2( 279, 558, 93, 93 )
+region = Rect2( 279, 372, 93, 93 )
 
 [sub_resource type="SpriteFrames" id=32]
 animations = [ {
@@ -147,32 +147,32 @@ animations = [ {
 }, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "run",
+"name": "katana",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
-"name": "knife",
+"name": "saber",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
-"name": "saber",
+"name": "knife",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
-"name": "hammer",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
-"name": "katana",
+"name": "gun",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
-"name": "gun",
+"name": "hammer",
 "speed": 5.0
 } ]
 
@@ -182,7 +182,7 @@ height = 32.0
 
 [sub_resource type="CapsuleShape2D" id=34]
 radius = 16.0
-height = 8.0
+height = 12.0
 
 [sub_resource type="CapsuleShape2D" id=35]
 radius = 11.0
@@ -310,8 +310,8 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=39]
-length = 2.0
-step = 0.25
+length = 2.25
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -331,7 +331,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"times": PoolRealArray( 0, 0.85, 1.35, 1.65 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
@@ -343,7 +343,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.75, 1.25 ),
+"times": PoolRealArray( 1.1, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -355,7 +355,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 2.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -440,7 +440,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=42]
 length = 0.8
 step = 0.2
 tracks/0/type = "value"
@@ -492,7 +492,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=43]
 length = 2.0
 loop = true
 step = 0.5
@@ -580,6 +580,7 @@ script = ExtResource( 3 )
 position = Vector2( -7, 0 )
 frames = SubResource( 32 )
 animation = "idle"
+frame = 1
 offset = Vector2( 0, -25.071 )
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -596,14 +597,14 @@ collision_mask = 12
 [node name="Katana" type="CollisionShape2D" parent="HurtBox" index="0"]
 visible = false
 modulate = Color( 0.180392, 0.12549, 0.568627, 1 )
-position = Vector2( 16, -6 )
+position = Vector2( 11, -6 )
 shape = SubResource( 34 )
 disabled = true
 
 [node name="Knife" type="CollisionShape2D" parent="HurtBox" index="1"]
 visible = false
 modulate = Color( 0.180392, 0.12549, 0.568627, 1 )
-position = Vector2( 8, -6 )
+position = Vector2( 0, -6 )
 shape = SubResource( 35 )
 disabled = true
 
@@ -614,13 +615,14 @@ disabled = true
 
 [node name="Hamer" type="CollisionPolygon2D" parent="HurtBox" index="3"]
 visible = false
-polygon = PoolVector2Array( 9, -47, 38, -23, 43, 19, 17, 19, 25, -22 )
+polygon = PoolVector2Array( 9, -47, 38, -23, 43, 19, 1, 19, 7, 0, 21, 0, 25, -22 )
 disabled = true
 
 [node name="BulletPoint" type="Position2D" parent="." index="3"]
 position = Vector2( 25, -11 )
 
 [node name="AnimationPlayer" parent="." index="4"]
+autoplay = "idle"
 playback_speed = 3.0
 anims/damage = SubResource( 36 )
 anims/dash = SubResource( 37 )
@@ -628,8 +630,8 @@ anims/gun = SubResource( 38 )
 anims/hammer = SubResource( 39 )
 anims/idle = SubResource( 40 )
 anims/katana = SubResource( 41 )
-anims/knife = SubResource( 45 )
-anims/running = SubResource( 46 )
+anims/knife = SubResource( 42 )
+anims/running = SubResource( 43 )
 anims/saber = SubResource( 44 )
 [connection signal="area_entered" from="HurtBox" to="." method="damage_body"]
 [connection signal="body_entered" from="HurtBox" to="." method="damage_body"]

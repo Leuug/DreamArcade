@@ -1,15 +1,18 @@
 extends "res://src/bodies/character/player.gd"
 
+signal weapon_changed
+
 var current_weapon: int setget set_current_weapon
 var weapons: Array = [
 	Weapon.new("KNIFE", 3, 6),
-	Weapon.new("GUN", 1, 12),
-	Weapon.new("HAMMER", 9, 1),
-	Weapon.new("SABER", 6, 1),
-	Weapon.new("KATANA", 4, 3)
+	Weapon.new("GUN", 1, 12, Game.EFFECTS.SLOWNESS),
+	Weapon.new("HAMMER", 9, 1, Game.EFFECTS.KNOCKBACK),
+	Weapon.new("SABER", 6, 1, Game.EFFECTS.MELT),
+	Weapon.new("KATANA", 4, 3, Game.EFFECTS.DIZZY)
 ]
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var bullet_point: Position2D = $BulletPoint
+onready var hurt_box: Area2D = $HurtBox
 
 
 func _ready() -> void:
@@ -26,13 +29,7 @@ func _input(event: InputEvent) -> void:
 		set_current_weapon(cycle_trought(current_weapon, weapons.size() -1, -1))
 
 
-func damage_body(body: CollisionObject2D) -> void:
-	
-	if body.has_method("take_damage"):
-		body.take_damage(max(weapons[current_weapon].damage_modifier - 1, 1), global_position)
-
-
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void:
 	set_state(State.IDLE)
 
 
@@ -57,13 +54,17 @@ func _set_attack() -> void:
 
 func _damage(atk: int) -> void:
 	._damage(atk)
+	set_state(State.DAMAGE)
 	animation_player.play("damage")
 
 
 func _move_left() -> void:
+	
 	._move_left()
 	animated_sprite.flip_h = true
 	bullet_point.position.x = -abs(bullet_point.position.x)
+	hurt_box.scale.x = -abs(hurt_box.scale.x)
+	hurt_box.position.x = -14 # WATCH -> O centro do sprite ficou deslocado
 
 
 func _move_right() -> void:
@@ -71,6 +72,8 @@ func _move_right() -> void:
 	._move_right()
 	animated_sprite.flip_h = false
 	bullet_point.position.x = abs(bullet_point.position.x)
+	hurt_box.scale.x = abs(hurt_box.scale.x)
+	hurt_box.position.x = 0 # WATCH -> O centro do sprite ficou deslocado
 
 
 # @main
@@ -83,12 +86,18 @@ func _shoot() -> void:
 	new_bullet.global_position = bullet_point.global_position
 	new_bullet.rotation = deg2rad(180) if animated_sprite.flip_h else deg2rad(0)
 	get_tree().current_scene.add_child(new_bullet)
-	set_combo()
+	._set_attack()
+
+
+func damage_body(body: CollisionObject2D) -> void:
+	
+	if body.has_method("take_damage"):
+		body.take_damage(max(weapons[current_weapon].damage_modifier - 1, 1), global_position, weapons[current_weapon].effect)
 
 
 # @setters
 func set_current_weapon(value: int) -> void:
 	
 	current_weapon = value
-	set_max_combos(weapons[current_weapon].max_combos)
 	emit_signal("weapon_changed", weapons[current_weapon].name)
+	set_max_combos(weapons[current_weapon].max_combos)

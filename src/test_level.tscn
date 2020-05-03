@@ -79,6 +79,8 @@ position = Vector2( 280, 280 )
 
 [node name="Enemie" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 448, 280 )
+max_health = 100
+max_speed = 0.0
 
 [node name="Polygon2D" type="Polygon2D" parent="YSort/Enemie"]
 color = Color( 0.792157, 0.0431373, 0.411765, 1 )
@@ -94,6 +96,7 @@ polygon = PoolVector2Array( 0, -8, -8, 0, 0, 0, 0, 8, 8, 0, 0, 0, 0, -8, 0, -8 )
 
 [node name="DestructibleObject" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 352, 224 )
+collision_layer = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="YSort/DestructibleObject"]
 color = Color( 0.835938, 0.804508, 0.333069, 1 )
@@ -101,6 +104,7 @@ polygon = PoolVector2Array( 0, -8, 8, 0, 0, 8, -8, 0 )
 
 [node name="ExplosiveObject" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 400, 232 )
+collision_layer = 1
 
 [node name="Circle" type="Node2D" parent="YSort/ExplosiveObject"]
 show_behind_parent = true
@@ -110,4 +114,5 @@ color = Color( 1, 0.89, 0.77, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 [connection signal="combo_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_combo_changed"]
+[connection signal="max_combos_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_max_combos_changed"]
 [connection signal="weapon_changed" from="YSort/Gerard" to="HUD" method="_on_Gerard_weapon_changed"]

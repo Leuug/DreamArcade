@@ -44,16 +44,16 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 
 
 # @override
-func take_damage(atk: int, from: Vector2) -> void:
+func take_damage(atk: int, from: Vector2, effect: int = 0) -> void:
 	
 	if not is_damaging:
-		.take_damage(atk, from)
+		.take_damage(atk, from, effect)
+		$AnimationPlayer.play("take_damage")
 
 
 func _knock_back(from: Vector2, force: int) -> void:
 	
 	state = States.KNOCK_BACK
-	$AnimationPlayer.play("take_damage")
 	$KnockBackTimer.start()
 	._knock_back(from, force)
 

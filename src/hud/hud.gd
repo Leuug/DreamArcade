@@ -31,7 +31,15 @@ func _on_Gerard_weapon_changed(weapon: String) -> void:
 
 
 func _on_Gerard_combo_changed(combo: int) -> void:
-	stamina_bar.value = stamina_bar.max_value - combo
+	
+	if stamina_bar != null:
+		stamina_bar.value = combo
+
+
+func _on_Gerard_max_combos_changed(value: int) -> void:
+	
+	if stamina_bar != null:
+		stamina_bar.max_value = value
 
 
 func _on_Exit_confirmed() -> void:

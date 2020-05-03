@@ -9,7 +9,13 @@ signal fullscreen_mode_changed
 signal score_changed
 signal language_changed
 
-
+enum EFFECTS {
+	NONE,
+	DIZZY,
+	MELT,
+	KNOCKBACK,
+	SLOWNESS
+}
 const VOLUME_STEP = 0.1
 var score: int setget set_score
 onready var language := TranslationServer.get_locale() setget set_language, get_language
@@ -35,6 +41,7 @@ func _input(event: InputEvent) -> void:
 		assert(errors == OK)
 
 
+# @main
 func increase_volume(channel: int = AudioServer.get_bus_index("Master")) -> void:
 	set_volume(linear2db(db2linear(AudioServer.get_bus_volume_db(channel))  + VOLUME_STEP), channel)
 
@@ -77,6 +84,7 @@ func mute_toggle(channel: int = AudioServer.get_bus_index("Master")) -> void:
 	emit_signal("mute_toggled", channel, value)
 
 
+# @setters
 func set_fullscreen(mode: bool = not OS.window_fullscreen) -> void:
 	"""
 	Alterna o modo de Tela Cheia.
@@ -98,5 +106,6 @@ func set_language(value: String) -> void:
 	emit_signal("language_changed", value)
 
 
+# @getters
 func get_language() -> String:
 	return language
