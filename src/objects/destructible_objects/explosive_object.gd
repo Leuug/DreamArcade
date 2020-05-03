@@ -1,9 +1,13 @@
 extends "res://src/objects/destructible_object.gd"
 
+var is_exploding: bool
 
-func take_damage(_atk: int, _pos: Vector2) -> void:
-	$AnimationPlayer.play("exploding")
+func take_damage() -> void:
+	
+	if not is_exploding:
+		animation_player.play("exploding")
+		is_exploding = true
 
 
 func _on_ExplosionArea_exploded() -> void:
-	$AnimationPlayer.play("fade")
+	animation_player.play("fade")

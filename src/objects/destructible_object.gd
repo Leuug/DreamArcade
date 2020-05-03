@@ -1,11 +1,14 @@
 extends StaticBody2D
+"""
+Um objeto simples que pode ser destruído.
+"""
 
 const collectible: PackedScene = preload("res://src/objects/collectible.tscn")
 var dying: bool
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func take_ddamage(_atk: int, _pos: Vector2) -> void:
+func take_damage() -> void:
 	"""
 	Destroi o objeto com algum ataque.
 	"""

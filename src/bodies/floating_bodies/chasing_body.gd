@@ -9,8 +9,11 @@ var target_node: Node2D
 func _ready() -> void:
 	
 	if target != null:
+		var errors: int
+		
 		target_node = get_node(target)
-		target_node.connect("tree_exiting", self, "_on_TargetNode_tree_exiting")
+		errors = target_node.connect("tree_exiting", self, "_on_TargetNode_tree_exiting")
+		assert(errors == OK)
 
 
 func _physics_process(delta) -> void:
