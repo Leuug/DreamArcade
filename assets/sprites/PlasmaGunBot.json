@@ -1,0 +1,238 @@
+{ "frames": {
+   "PlasmaGunBot 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 1.aseprite": {
+    "frame": { "x": 88, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 2.aseprite": {
+    "frame": { "x": 176, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 3.aseprite": {
+    "frame": { "x": 264, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 4.aseprite": {
+    "frame": { "x": 352, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 5.aseprite": {
+    "frame": { "x": 440, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 6.aseprite": {
+    "frame": { "x": 528, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 7.aseprite": {
+    "frame": { "x": 616, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 8.aseprite": {
+    "frame": { "x": 704, "y": 0, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 200
+   },
+   "PlasmaGunBot 9.aseprite": {
+    "frame": { "x": 0, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 10.aseprite": {
+    "frame": { "x": 88, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 11.aseprite": {
+    "frame": { "x": 176, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 12.aseprite": {
+    "frame": { "x": 264, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 13.aseprite": {
+    "frame": { "x": 352, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 14.aseprite": {
+    "frame": { "x": 440, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 15.aseprite": {
+    "frame": { "x": 528, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 16.aseprite": {
+    "frame": { "x": 616, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 17.aseprite": {
+    "frame": { "x": 704, "y": 88, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 18.aseprite": {
+    "frame": { "x": 0, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 19.aseprite": {
+    "frame": { "x": 88, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 100
+   },
+   "PlasmaGunBot 20.aseprite": {
+    "frame": { "x": 176, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 21.aseprite": {
+    "frame": { "x": 264, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 22.aseprite": {
+    "frame": { "x": 352, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 23.aseprite": {
+    "frame": { "x": 440, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 24.aseprite": {
+    "frame": { "x": 528, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 25.aseprite": {
+    "frame": { "x": 616, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   },
+   "PlasmaGunBot 26.aseprite": {
+    "frame": { "x": 704, "y": 176, "w": 88, "h": 88 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 88, "h": 88 },
+    "sourceSize": { "w": 88, "h": 88 },
+    "duration": 150
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.3-dev",
+  "image": "C:\\Users\\leuug\\Documents\\Game_Projects\\Team\\DreamArcade\\assets\\sprites\\PlasmaGunBot.png",
+  "format": "RGBA8888",
+  "size": { "w": 792, "h": 264 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "idle_d", "from": 0, "to": 2, "direction": "forward" },
+   { "name": "idle_r", "from": 3, "to": 5, "direction": "forward" },
+   { "name": "idle_u", "from": 6, "to": 8, "direction": "forward" },
+   { "name": "run_r", "from": 9, "to": 11, "direction": "forward" },
+   { "name": "run_u", "from": 12, "to": 14, "direction": "forward" },
+   { "name": "run_d", "from": 15, "to": 17, "direction": "forward" },
+   { "name": "shoot_r", "from": 18, "to": 20, "direction": "forward" },
+   { "name": "shoot_u", "from": 21, "to": 23, "direction": "forward" },
+   { "name": "shoot_d", "from": 24, "to": 26, "direction": "forward" }
+  ]
+ }
+}
